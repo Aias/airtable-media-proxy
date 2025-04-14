@@ -22,13 +22,18 @@ export default {
 		if (response) return response;
 
 		// Fetch the Airtable record for the given base, table, and record ID.
-		const airtableRes = await fetch(`https://api.airtable.com/v0/${baseId}/${tableId}/${recordId}`, {
+		const airtableApiUrl = `https://api.airtable.com/v0/${baseId}/${tableId}/${recordId}`;
+		const airtableRes = await fetch(airtableApiUrl, {
 			headers: {
 				Authorization: `Bearer ${env.AIRTABLE_ACCESS_TOKEN}`
 			}
 		});
 
 		if (!airtableRes.ok) {
+			const errorText = await airtableRes.text();
+			console.error(
+				`Airtable API error for ${recordId}: ${airtableRes.status} ${airtableRes.statusText}. Body: ${errorText}`
+			);
 			return new Response('Airtable record not found', { status: 404 });
 		}
 
