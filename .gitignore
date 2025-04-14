@@ -8,7 +8,11 @@ dist/
 *.log
 
 # Environment variables
-.env 
+.env
+.dev.vars
 
 # Temp files
 temp/
+
+# Cloudflare state
+.wrangler/

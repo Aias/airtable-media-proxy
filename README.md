@@ -36,6 +36,9 @@ A while ago Airtable changed their API such that image URLs are only valid for a
     wrangler secret put AIRTABLE_ACCESS_TOKEN
     ```
 
+    **Important:** This command securely stores your API token with Cloudflare. You can also add/manage secrets via the Cloudflare Dashboard (Worker > Settings > Variables > Secrets).
+    **Do not** add your `AIRTABLE_ACCESS_TOKEN` to the `wrangler.toml` file or commit it to Git. Use a `.dev.vars` file (added to `.gitignore`) for local development if needed, but secrets are the standard for deployed workers.
+
 3. Deploy the Worker:
     ```bash
     wrangler deploy
