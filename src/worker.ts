@@ -5,6 +5,7 @@ export interface Env {
 }
 
 const MAX_AGE = 60 * 60 * 24; // Cache for 1 day.
+const IMAGE_FIELD = 'images';
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
@@ -42,7 +43,7 @@ export default {
 		};
 
 		// Get the image field (change "Image" if necessary)
-		const imageField = data.fields?.Image;
+		const imageField = data.fields?.[IMAGE_FIELD];
 		if (!imageField || imageField.length === 0) {
 			return new Response('Image field not found or empty', { status: 404 });
 		}

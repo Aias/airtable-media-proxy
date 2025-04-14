@@ -13,6 +13,7 @@ A while ago Airtable changed their API such that image URLs are only valid for a
 
     - `{baseId}`, `{tableId}`, `{recordId}`: Required path parameters.
     - `?index={imageIndex}`: Optional query parameter (zero-based) to select a specific image if the Airtable field contains multiple attachments. If omitted, defaults to the first image (`index=0`).
+    - **NOTE:** This assumes that your images are located in a field named `images`. If your field is named differently, you can change the `IMAGE_FIELD` constant in the `src/worker.ts` file.
 
 2. **Airtable Record Fetch:**  
    The Worker calls the Airtable API to fetch the record data.
