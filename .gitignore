@@ -1,0 +1,14 @@
+# Dependency directories
+node_modules/
+
+# TypeScript compiled output
+dist/
+
+# Log files
+*.log
+
+# Environment variables
+.env 
+
+# Temp files
+temp/

@@ -1,0 +1,8 @@
+name = "airtable-image-proxy"
+main = "src/worker.ts"
+compatibility_date = "2024-04-14"
+
+[vars]
+# Note: Do not commit your actual Airtable API key.
+# Set it via Cloudflare Wrangler secrets:
+#   wrangler secret put AIRTABLE_ACCESS_TOKEN 
